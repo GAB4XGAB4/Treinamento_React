@@ -8,6 +8,7 @@ const CREDENCIAIS = {
 function App() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [mostrarSenha, setMostrarSenha] = useState(false);
   const [mensagem, setMensagem] = useState("");
 
   const validarAcesso = () => {
@@ -36,10 +37,17 @@ function App() {
 
         <input
           id="senha"
-          type="password"
+          type={mostrarSenha ? "text" : "password"}
           value={senha}
           onChange={(event) => setSenha(event.target.value)}
         />
+
+        <button
+          type="button"
+          onClick={() => setMostrarSenha((estadoAtual) => !estadoAtual)}
+        >
+          {mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
+        </button>
 
         <button type="button" onClick={validarAcesso}>
           Acessar
