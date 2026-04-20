@@ -24,23 +24,19 @@ function App() {
 
   return (
     <main className="pagina-login">
-      <section className="card-login" aria-label="Formulário de login">
+      <section className="card-login" aria-label="Formulario de login">
         <h1>Login</h1>
 
-        <label htmlFor="email">E-mail</label>
         <input
           id="email"
           type="email"
-          placeholder="Digite seu e-mail"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
 
-        <label htmlFor="senha">Senha</label>
         <input
           id="senha"
           type="password"
-          placeholder="Digite sua senha"
           value={senha}
           onChange={(event) => setSenha(event.target.value)}
         />
