@@ -35,21 +35,37 @@ function App() {
           onChange={(event) => setEmail(event.target.value)}
         />
 
-        <input
-          id="senha"
-          type={mostrarSenha ? "text" : "password"}
-          value={senha}
-          onChange={(event) => setSenha(event.target.value)}
-        />
+        <div className="senha-wrapper">
+          <input
+            id="senha"
+            type={mostrarSenha ? "text" : "password"}
+            value={senha}
+            onChange={(event) => setSenha(event.target.value)}
+          />
 
-        <button
-          type="button"
-          onClick={() => setMostrarSenha((estadoAtual) => !estadoAtual)}
-        >
-          {mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
-        </button>
+          <button
+            type="button"
+            className="botao-olho"
+            aria-label={mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
+            title={mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
+            onClick={() => setMostrarSenha((estadoAtual) => !estadoAtual)}
+          >
+            {mostrarSenha ? (
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z" />
+                <circle cx="12" cy="12" r="3" />
+                <path d="M4 20 20 4" />
+              </svg>
+            )}
+          </button>
+        </div>
 
-        <button type="button" onClick={validarAcesso}>
+        <button type="button" className="botao-acessar" onClick={validarAcesso}>
           Acessar
         </button>
 
